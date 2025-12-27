@@ -18,21 +18,20 @@ Banner Grabbing: Connect to ports for
 service info: nc target 80 (HTTP),
 telnet target 21 (FTP) to read banners
  revealing versions.�2. Port Service
-ScanningUse Nmap on Metasploitable
-2:TCP SYN Scan: nmap -sS -p- target_ip
+ScanningUse Nmap on Metasploitable:TCP SYN Scan: nmap -sS -p- target_ip
 (stealthy, common ports).UDP Scan: nmap -sU
  target_ip (noisy, for UDP services).
 Service Version: nmap -sV -sS target_ip
  (detects software versions).
 OS Detection: nmap -O target_ip (fingerprint OS).
 Save output: nmap -oX scan.xml target_ip for reports.
-3. Vulnerability ScanningInstall OpenVAS
-4. (Kali: sudo apt install openvas) or
-5. Nessus Essentials.Launch OpenVAS,
-6. create target (Metasploitable2 IP),
-7.  run scan.Analyze report: Categorize vulnerabilities as
-8.  Critical, High, Medium, Low; note CVEs and fixes.
-9.  4. Packet Analysis with WiresharkStart
+Vulnerability ScanningInstall OpenVAS
+(Kali: sudo apt install openvas) or
+Nessus Essentials.Launch OpenVAS,
+   create target (Metasploitable2 IP),
+   run scan.Analyze report: Categorize vulnerabilities as
+    Critical, High, Medium, Low; note CVEs and fixes.
+    4. Packet Analysis with WiresharkStart
      capture on lab interface: wireshark.Generate
  traffic: Browse HTTP, login FTP, query DNS on
 Metasploitable2.Filters:http contains "password"
