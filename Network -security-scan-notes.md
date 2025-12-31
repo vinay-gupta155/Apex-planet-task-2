@@ -69,3 +69,19 @@ Capture live traffic or analyze saved captures to examine packet details like he
 
 Key Wireshark Steps: 
 Capture Setup: Select interface (e.g., Ethernet/WiFi) > Start capture; apply capture filters like "host 192.168.1.1" or "port 80".Display Filters: Post-capture, use filters like "http contains 'password'", "http.request.method == POST", or "tcp.port == 443" to isolate traffic.Follow Streams: Right-click packet > Follow > TCP/HTTP Stream to reconstruct sessions, view plaintext data.Export Objects: File > Export Objects > HTTP to save files leaked in responses.
+
+firewall basics:focusing on creating simple rules to block unwanted ports while allowing specific traffic, essential for network security in ethical hacking. It teaches rule syntax, testing with scans, and delivery of reports with demos. 
+
+Core Objectives: Understand firewall roles in filtering inbound/outbound traffic based on ports, IPs, or protocols to prevent unauthorized access. Create basic iptables rules on Linux for stateful inspection (e.g., allow established connections, drop others). Test rules using Nmap scans pre/post-configuration to verify blocking. 
+
+Key Steps for iptables Rules: 
+View Rules: sudo iptables -L -n -v lists chains (INPUT, OUTPUT, FORWARD).
+Default Policy: sudo iptables -P INPUT DROP blocks all incoming by default.
+Allow Specific: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT permits SSH; -s 192.168.1.0/24 restricts to subnet.
+Allow Loopback/Established: sudo iptables -A INPUT -i lo -j ACCEPT; sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT.
+Save Rules: sudo netfilter-persistent save. 
+Testing and Delivery:
+Pre-Scan: nmap -p 1-1000 target shows open ports.
+Post-Rule Scan: Verify blocks (filtered ports).
+Demo Video: Record rule setup, scans, and analysis.
+Report: Screenshot rules, scan diffs, explain evasion attempts. 
