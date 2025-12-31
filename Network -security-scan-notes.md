@@ -1,4 +1,5 @@
 Reconnaissance is the process of gathering information about a target, often stealthily, to prepare for action. It commonly refers to military scouting of enemy positions or cyber efforts to profile networks and vulnerabilities.
+
 Core Concept: Reconnaissance involves preliminary surveys to identify strengths, weaknesses, and layouts without direct confrontation. In military terms, it uses patrols or aircraft to map terrain and enemy forces. Cyber versions collect public data like domain records or employee details passively. 
 Types:  1)Passive: Gathers open-source info without touching the target, such as social media scans or WHOIS lookups.        2)Active: Directly probes with tools like port scanners to detect vulnerabilities. 
 Applications: Military reconnaissance spots exploitable gaps in defenses. In cybersecurity, it precedes attacks by revealing entry points. Ethical hackers use it to test defenses proactively. 
