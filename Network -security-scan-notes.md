@@ -75,13 +75,23 @@ firewall basics:focusing on creating simple rules to block unwanted ports while 
 Core Objectives: Understand firewall roles in filtering inbound/outbound traffic based on ports, IPs, or protocols to prevent unauthorized access. Create basic iptables rules on Linux for stateful inspection (e.g., allow established connections, drop others). Test rules using Nmap scans pre/post-configuration to verify blocking. 
 
 Key Steps for iptables Rules: 
+
 View Rules: sudo iptables -L -n -v lists chains (INPUT, OUTPUT, FORWARD).
+
 Default Policy: sudo iptables -P INPUT DROP blocks all incoming by default.
+
 Allow Specific: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT permits SSH; -s 192.168.1.0/24 restricts to subnet.
+
 Allow Loopback/Established: sudo iptables -A INPUT -i lo -j ACCEPT; sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT.
+
 Save Rules: sudo netfilter-persistent save. 
+
 Testing and Delivery:
+
 Pre-Scan: nmap -p 1-1000 target shows open ports.
+
 Post-Rule Scan: Verify blocks (filtered ports).
+
 Demo Video: Record rule setup, scans, and analysis.
+
 Report: Screenshot rules, scan diffs, explain evasion attempts. 
