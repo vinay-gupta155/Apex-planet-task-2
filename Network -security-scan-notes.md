@@ -60,3 +60,12 @@ Creating Targets and Scans:
 Define a Target: Go to Configuration > Targets > New; enter IP, range (e.g., 192.168.1.0/24), or domain, plus ports (default all).
 
 Create a Task: Scans > Tasks > New; select target, choose scan config (e.g., "Full and fast" for balanced speed/depth), set credentials if needed.Launch the task monitor progress under Scans dashboard
+
+Wireshark: it is the focus of capturing and analyzing network traffic (high/medium/low level) to identify vulnerabilities, filter packets, and detect attacks like SQL injection from unencrypted HTTP traffic. It enables deep inspection of protocols, payloads, and anomalies in real-time or from PCAP files. 
+
+Core Objectives: 
+
+Capture live traffic or analyze saved captures to examine packet details like headers, payloads, and protocols (HTTP, TCP, etc.). Filter for specific traffic (e.g., unencrypted HTTP for credentials) and detect exploits such as SQL injection or XSS in requests. Perform syslog analysis for errors or unusual patterns. 
+
+Key Wireshark Steps: 
+Capture Setup: Select interface (e.g., Ethernet/WiFi) > Start capture; apply capture filters like "host 192.168.1.1" or "port 80".Display Filters: Post-capture, use filters like "http contains 'password'", "http.request.method == POST", or "tcp.port == 443" to isolate traffic.Follow Streams: Right-click packet > Follow > TCP/HTTP Stream to reconstruct sessions, view plaintext data.Export Objects: File > Export Objects > HTTP to save files leaked in responses.
