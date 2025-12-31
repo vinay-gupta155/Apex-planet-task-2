@@ -1,7 +1,25 @@
 Reconnaissance is the process of gathering information about a target, often stealthily, to prepare for action. It commonly refers to military scouting of enemy positions or cyber efforts to profile networks and vulnerabilities.
 
 Core Concept: Reconnaissance involves preliminary surveys to identify strengths, weaknesses, and layouts without direct confrontation. In military terms, it uses patrols or aircraft to map terrain and enemy forces. Cyber versions collect public data like domain records or employee details passively. 
-Types:  1)Passive: Gathers open-source info without touching the target, such as social media scans or WHOIS lookups.        2)Active: Directly probes with tools like port scanners to detect vulnerabilities. 
+
+Types: 
+1)Passive: Gathers open-source info without touching the target, such as social media scans or WHOIS lookups.       
+2)Active: Directly probes with tools like port scanners to detect vulnerabilities. 
+
 Applications: Military reconnaissance spots exploitable gaps in defenses. In cybersecurity, it precedes attacks by revealing entry points. Ethical hackers use it to test defenses proactively. 
-Passive reconnaissance: it uses public sources to gather target info without direct contact, minimizing detection risk. Techniques like WHOIS, nslookup, Google dorking, and Shodan exemplify this by querying open databases and search engines. 1)WHOIS Queries: WHOIS lookups reveal domain registration details, such as owner names, emails, addresses, and name servers, from public registries without touching the target. Tools like whois command-line pull this data passively. No logs created on the target's side.                     2)NSLookup: NSLookup queries DNS servers for domain records, like IP addresses, mail exchangers, or subdomains, using public resolvers. It maps network structure indirectly via existing DNS responses. Remains passive as it avoids target interaction.                          3)Google Dorking: Google dorking employs advanced search operators (e.g., site:, filetype:) to uncover sensitive public info like exposed files, directories, or employee details on websites. Examples include "site:target.com filetype:pdf confidential". Extracts data from indexed web content stealthily.                           4)Shodan: Shodan scans the internet for exposed devices, ports, and services, acting as a search engine for IoT and servers. Users query banners, vulnerabilities, or geolocations passively from its database. Reveals global attack surfaces without personal probing. 
-Active reconnaissance: it involves direct interaction with the target, unlike passive methods, to map networks and services. Ping sweeps and banner grabbing are key techniques that send probes, risking detection by security tools.                         1)Ping Sweep: Ping sweep sends ICMP echo requests (pings) across an IP range to identify live hosts responding with echo replies. Tools like Nmap or fping automate this for network discovery and vulnerability spotting. Firewalls often block ICMP, prompting TCP/UDP alternatives.       2)Banner Grabbing: Banner grabbing connects to open ports to elicit service banners revealing software versions, like "Apache 2.4.7". Tools such as Netcat or Nmap fetch this data actively, aiding exploit selection. It exposes versions for targeted attacks if unpatched. 
+
+Passive reconnaissance: it uses public sources to gather target info without direct contact, minimizing detection risk. Techniques like WHOIS, nslookup, Google dorking, and Shodan exemplify this by querying open databases and search engines.
+
+1)WHOIS Queries: WHOIS lookups reveal domain registration details, such as owner names, emails, addresses, and name servers, from public registries without touching the target. Tools like whois command-line pull this data passively. No logs created on the target's side.          
+
+2)NSLookup: NSLookup queries DNS servers for domain records, like IP addresses, mail exchangers, or subdomains, using public resolvers. It maps network structure indirectly via existing DNS responses. Remains passive as it avoids target interaction.       
+
+3)Google Dorking: Google dorking employs advanced search operators (e.g., site:, filetype:) to uncover sensitive public info like exposed files, directories, or employee details on websites. Examples include "site:target.com filetype:pdf confidential". Extracts data from indexed web content stealthily.                   
+
+4)Shodan: Shodan scans the internet for exposed devices, ports, and services, acting as a search engine for IoT and servers. Users query banners, vulnerabilities, or geolocations passively from its database. Reveals global attack surfaces without personal probing. 
+
+Active reconnaissance: it involves direct interaction with the target, unlike passive methods, to map networks and services. Ping sweeps and banner grabbing are key techniques that send probes, risking detection by security tools.    
+
+1)Ping Sweep: Ping sweep sends ICMP echo requests (pings) across an IP range to identify live hosts responding with echo replies. Tools like Nmap or fping automate this for network discovery and vulnerability spotting. Firewalls often block ICMP, prompting TCP/UDP alternatives.   
+
+2)Banner Grabbing: Banner grabbing connects to open ports to elicit service banners revealing software versions, like "Apache 2.4.7". Tools such as Netcat or Nmap fetch this data actively, aiding exploit selection. It exposes versions for targeted attacks if unpatched. 
