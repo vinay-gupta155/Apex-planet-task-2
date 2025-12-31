@@ -23,3 +23,26 @@ Active reconnaissance: it involves direct interaction with the target, unlike pa
 1)Ping Sweep: Ping sweep sends ICMP echo requests (pings) across an IP range to identify live hosts responding with echo replies. Tools like Nmap or fping automate this for network discovery and vulnerability spotting. Firewalls often block ICMP, prompting TCP/UDP alternatives.   
 
 2)Banner Grabbing: Banner grabbing connects to open ports to elicit service banners revealing software versions, like "Apache 2.4.7". Tools such as Netcat or Nmap fetch this data actively, aiding exploit selection. It exposes versions for targeted attacks if unpatched. 
+
+Nmap: it performs port and service scanning by sending probes to target IP addresses to check which ports listen for connections and identify running services. It categorizes ports as open, closed, or filtered, helping map networks for security audits. 
+
+Basic Usage: Run nmap [target] to scan the top 1,000 TCP ports on a host like an IP or domain. For all 65,535 ports, use nmap -p- [target], though it takes longer. Add -sS for stealth SYN scans that avoid full connections. 
+
+Port Scanning TypesTCP SYN Scan (-sS): Sends SYN packets; open ports reply with SYN-ACK, then reset without completing handshake.TCP Connect Scan (-sT): Full three-way handshake to confirm open ports reliably.UDP Scan (-sU): Probes UDP ports; open ones may reply, closed send ICMP unreachable. 
+
+Service DetectionUse -sV to probe open ports for service versions, like detecting Apache on port 80 from banners. Combine with -A for OS detection, scripts, and traceroute. Output shows port, state, and service details clearly. 
+
+Nmap offers dozens of commands and options for detailed port scanning, service detection, and network mapping. Core syntax is nmap [scan type] [options] [target], where targets can be IPs, ranges (192.168.1.1-255), or domains. Always run with sudo for raw socket access on Linux.
+
+Essential Scan Types
+nmap-sS target: TCP SYN scan (stealthy, default for root users; sends SYN, checks SYN-ACK).
+
+nmap -sT target: TCP Connect scan (full handshake, no root needed).
+
+nmap -sU target: UDP scan (slow, checks responses or ICMP errors).
+
+nmap -sV target: Version detection (probes open ports for service/software details).
+
+nmap -O target: OS detection (fingerprinting based on TCP/IP stack).
+
+nmap -A target: Aggressive (includes -sV, -O, script scan, traceroute). 
