@@ -24,6 +24,7 @@ Active reconnaissance: it involves direct interaction with the target, unlike pa
 
 2)Banner Grabbing: Banner grabbing connects to open ports to elicit service banners revealing software versions, like "Apache 2.4.7". Tools such as Netcat or Nmap fetch this data actively, aiding exploit selection. It exposes versions for targeted attacks if unpatched. 
 
+port and service scanning:
 Nmap: it performs port and service scanning by sending probes to target IP addresses to check which ports listen for connections and identify running services. It categorizes ports as open, closed, or filtered, helping map networks for security audits. 
 
 Basic Usage: Run nmap [target] to scan the top 1,000 TCP ports on a host like an IP or domain. For all 65,535 ports, use nmap -p- [target], though it takes longer. Add -sS for stealth SYN scans that avoid full connections. 
@@ -46,3 +47,16 @@ nmap -sV target: Version detection (probes open ports for service/software detai
 nmap -O target: OS detection (fingerprinting based on TCP/IP stack).
 
 nmap -A target: Aggressive (includes -sV, -O, script scan, traceroute). 
+
+Vulnerability scanning:
+
+OpenVAS: it is an open-source vulnerability scanner that automates testing for thousands of known security flaws across networks, hosts, and applications. It uses Network Vulnerability Tests (NVTs) updated daily from feeds like CVE to detect issues and prioritize them by severity. 
+Installation and Setup:
+
+Install OpenVAS (now part of Greenbone Vulnerability Manager or GVM) on Kali Linux via sudo apt install gvm. Run sudo gvm-setup to create an admin user and download feeds (takes hours initially). Start with sudo gvm-start, then access https://127.0.0.1:9392 in a browser using admin credentials. Update feeds regularly with sudo greenbone-feed-sync. 
+
+Creating Targets and Scans:
+
+Define a Target: Go to Configuration > Targets > New; enter IP, range (e.g., 192.168.1.0/24), or domain, plus ports (default all).
+
+Create a Task: Scans > Tasks > New; select target, choose scan config (e.g., "Full and fast" for balanced speed/depth), set credentials if needed.Launch the task monitor progress under Scans dashboard
